@@ -1,0 +1,16 @@
+/.bundle
+
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+npm-debug.log
+
+# Ignore Byebug command history file.
+.byebug_history
+
+.DS_Store
+*.rbc
+*.sassc
+.sass-cache
+vendor/gems

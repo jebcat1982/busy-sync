@@ -1,0 +1,20 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: busy-sync_development
+  pool: 5
+  username: root
+  password:
+<% if ENV['GH_MYSQL_SOCKET'] %>
+  socket: <%= ENV['GH_MYSQL_SOCKET'] %>
+<% end %>
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: busy-sync_test
+  username: root
+<% if ENV['GH_MYSQL_SOCKET'] %>
+  socket: <%= ENV['GH_MYSQL_SOCKET'] %>
+<% end %>

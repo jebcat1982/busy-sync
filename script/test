@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+[ -z "$DEBUG" ] || set -x
+
+export RACK_ROOT=$(cd "$(dirname $0)"/.. && pwd)
+
+if [ "$RAILS_ENV" = "test" ] || [ "$RACK_ENV" = "test" ]; then
+  script/setup
+else
+  export RAILS_ENV="test" RACK_ENV="test"
+fi
+
+echo "===> Running tests..."
+ruby -I test \
+  -e "(ARGV.empty? ? Dir['${RACK_ROOT}/test/**/*_test.rb'] : ARGV).each { |f| load f }"

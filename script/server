@@ -1,0 +1,6 @@
+#!/bin/sh
+
+test -z "$RACK_ENV" &&
+  RACK_ENV='development'
+
+bin/foreman start
