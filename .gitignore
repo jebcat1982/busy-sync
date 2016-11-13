@@ -14,3 +14,5 @@ npm-debug.log
 *.sassc
 .sass-cache
 vendor/gems
+
+.env

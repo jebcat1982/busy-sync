@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BusySync</title>
+    <title>Busy Sync</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,34 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
+      <div id="navbar">
+        <nav class="nav navbar-nav pull-xs-right">
+          <% if signed_in? %>
+            <%= current_user.name %>
+            <%= image_tag current_user.image %>
+            Signed in as <strong><%= current_user.name %></strong>!
+            <%= link_to "Sign out", "/logout" %>
+          <% else %>
+            <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+          <% end %>
+        </nav>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h2>Sync yer cals</h2>
+      <div>
+        <% if signed_in? %>
+          <%= current_user.name %>
+          <%= image_tag current_user.image %>
+          Signed in as <strong><%= current_user.name %></strong>!
+        <% else %>
+          <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+        <% end %>
+      </div>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
