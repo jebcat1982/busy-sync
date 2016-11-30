@@ -11,10 +11,10 @@
   <body>
     <nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
       <div id="navbar">
-        <nav class="nav navbar-nav pull-xs-right">
+        <nav class="nav navbar-nav float-xs-right">
           <% if signed_in? %>
             <%= current_user.name %>
-            <%= image_tag current_user.image %>
+            <%= image_tag current_user.image, class: "img-thumbnail" %>
             Signed in as <strong><%= current_user.name %></strong>!
             <%= link_to "Sign out", "/logout" %>
           <% else %>
@@ -24,19 +24,11 @@
       </div>
     </nav>
 
-    <div class="container">
-      <h2>Sync yer cals</h2>
-      <div>
-        <% if signed_in? %>
-          <%= current_user.name %>
-          <%= image_tag current_user.image %>
-          Signed in as <strong><%= current_user.name %></strong>!
-        <% else %>
-          <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
-        <% end %>
+    <section class="jumbotron text-xs-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Sync your calendars</h1>
+        <p class="lead text-muted">Login with your personal Google Account. Select your work account. Never cancel a meeting again. </p>
       </div>
-
-      <%= yield %>
-    </div>
+    </section>
   </body>
 </html>
