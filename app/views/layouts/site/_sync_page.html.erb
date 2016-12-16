@@ -1,0 +1,15 @@
+<div class="bd-example bd-example-images">
+  <figure class="figure">
+    <img src="<%= personal_img_src %>" class="figure-img img-fluid rounded" alt="The avatar image for the personal account." width="200" height="200">
+    <figcaption class="figure-caption text-xs-right"><%= personal_caption %></figcaption>
+  </figure>
+
+  <figure class="figure">
+    <img src="<%= business_img_src %>" class="figure-img img-fluid rounded" alt="The avatar image for the business account." width="200" height="200">
+    <figcaption class="figure-caption text-xs-right"><%= business_caption %></figcaption>
+  </figure>
+</div>
+
+<% if personal_signed_in? && business_signed_in? %>
+  <button type="button" class="btn btn-primary">Synchronize</button>
+<% end %>

@@ -12,14 +12,6 @@
     <nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
       <div id="navbar">
         <nav class="nav navbar-nav float-xs-right">
-          <% if signed_in? %>
-            <%= current_user.name %>
-            <%= image_tag current_user.image, class: "img-thumbnail" %>
-            Signed in as <strong><%= current_user.name %></strong>!
-            <%= link_to "Sign out", "/logout" %>
-          <% else %>
-            <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
-          <% end %>
         </nav>
       </div>
     </nav>
@@ -30,5 +22,9 @@
         <p class="lead text-muted">Login with your personal Google Account. Select your work account. Never cancel a meeting again. </p>
       </div>
     </section>
+
+    <div class="container">
+      <%= render partial: "layouts/site/sync_page" %>
+    </div>
   </body>
 </html>
